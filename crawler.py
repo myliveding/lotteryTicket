@@ -86,12 +86,19 @@ for child in tag_s1:
     # print(child)
     # print(child.find_all(name='td'))
     print("------------")
-    num = child.find_all(name='td', attrs={"align": "center"})
 
+    # num = child.find_all(name='td', attrs={"align": "center"})
+    num = child.find_all(name='td')
     for child1 in num:
-        print(child1.text.string)
-        print(child1.find_all(name='em'))
-        # num2 = child1.find_all(name='em')
-        # for child2 in num2:
-        #     print(child2.em.text)
+        # print(child1.strong.text)
+        if child1.string is not None:
+            print(child1.string)
+
+        strongDesc = child1.find(name='strong')
+        if strongDesc is not None:
+            print(strongDesc.string)
+
+        num2 = child1.find_all(name='em')
+        for child2 in num2:
+            print(child2.string)
 
